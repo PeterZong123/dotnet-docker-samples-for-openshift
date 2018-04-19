@@ -20,4 +20,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 
-EXPOSE 8080
+EXPOSE 80
