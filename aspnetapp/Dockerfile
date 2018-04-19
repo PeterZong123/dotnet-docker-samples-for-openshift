@@ -1,7 +1,4 @@
 FROM microsoft/aspnetcore-build:2.0 AS build-env
-
-RUN addgroup -S sentience && adduser -S -g sentience sentience
-
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
@@ -13,6 +10,9 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # build runtime image
+RUN addgroup sentience
+RUN adduser --system sentience
+RUN adduser sentience sentience
 USER sentience
 
 FROM microsoft/aspnetcore:2.0
