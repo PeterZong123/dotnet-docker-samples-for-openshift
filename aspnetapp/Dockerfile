@@ -26,4 +26,4 @@ USER sentience
 
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 
-EXPOSE 80
+EXPOSE 8080
