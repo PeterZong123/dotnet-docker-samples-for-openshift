@@ -19,6 +19,9 @@ COPY --from=build-env /app/out .
 RUN addgroup sentience
 RUN adduser --system sentience
 RUN adduser sentience sentience
+
+RUN chown -R sentience:sentience /app && chmod -R og+rwx /app
+
 USER sentience
 
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
