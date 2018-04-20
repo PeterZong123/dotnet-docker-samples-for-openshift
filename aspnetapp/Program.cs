@@ -12,10 +12,13 @@ namespace aspnetapp
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseKestrel(options =>
+                {
+                    options.Listen(System.Net.IPAddress.Any, 8080);
+                })
                 .Build();
 
             host.Run();
