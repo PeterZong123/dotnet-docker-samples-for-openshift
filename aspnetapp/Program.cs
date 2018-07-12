@@ -17,7 +17,7 @@ namespace aspnetapp
                 .UseStartup<Startup>()
                 .UseKestrel(options =>
                 {
-                    options.Listen(System.Net.IPAddress.Any, 8080);
+                    options.Listen(System.Net.IPAddress.Any, 80);
                 })
                 .Build();
 
